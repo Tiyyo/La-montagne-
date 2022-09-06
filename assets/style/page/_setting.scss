@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+:after, :before{
+    box-sizing: border-box;
+}
+@font-face {
+    font-family:"inter-bold" ;
+    src: url(../../fonts/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: "merri";
+    src: url(../../fonts/Merriweather-Light.ttf);
+}
+
+// variable
+$font1: inter-bold, sans-serif;
+$font2 : merri, serif;
+$width_navbar : 80%;
+$black1 : rgb(17,17,17);
+$white1 : rgb(243,243,243);
+$grey1 : rgb(209,209,209);
+$grey2 : rgb(233,233,233);
+$grey3 : rgb(105,105,105);
+
+
+//----------------
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin title {
+    font-family: $font1;
+    letter-spacing: 2px;
+    text-transform: uppercase;    
+}
+html{
+    scroll-behavior: smooth;
+}
+a, a:visited{
+    color: $white1;
+}
+img{
+    width: 100%;
+}
+button{
+    font-family: $font1;
+    
+    &:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+}
+
+p{
+    font-family: $font2;
+}
+.date{
+    font-family: $font2;
+}
+body{
+    color: black;
+    background: url('../../images/bg.jpg') fixed center/cover;
+    max-width: 1700px;
+    margin: 0 auto;
+    min-height: 100vh;
+    @include center();
+
+    &:before{
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        background-color: black;
+        animation: animBefore 1.5s ease forwards;
+        animation-delay: 0.15s;
+
+        @keyframes animBefore{
+            to{
+                opacity: 0;
+            }
+        }
+    }
+
+    @media screen and ( max-width: 920px){
+        background: cover;
+    }
+}
+
+.container{
+    width: 80%;  
+}
+.fullstory{
+    color: black;
+    border: 2px solid black;
+    background-color: white;
+    width: 175px;
+    height: 45px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 50px;
+
+    &:hover{
+        transform: scale(1.1);
+        transition: 0.250s ease-in-out;
+        background-color: rgba(240, 234, 234, 0.349);
+    }
+}
+

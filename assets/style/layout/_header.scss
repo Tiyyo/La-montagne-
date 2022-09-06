@@ -1,0 +1,150 @@
+header{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height:90vh ;
+
+    .header-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(300px);
+        animation: headerAnim 1.5s ease forwards;
+
+        @keyframes headerAnim{
+            to{
+                transform: translateY(0);
+                opacity : 1; 
+
+            }
+        }
+    }
+
+    h1{
+        @include title;
+        text-align: center;
+        align-self: center;
+        color: white;
+        font-size: 4vw;
+        width: 65%;
+        margin-top: 250px;
+
+        @media screen and ( max-width: 920px) {
+            font-size: 3rem;
+            width: 100%;
+        }
+
+    }
+    p{
+        color: white;
+        font-style: italic;
+        margin-top: 1.5rem;
+        width: 80%;
+        align-self: center;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+    .arrow-down{
+        align-self: center;        
+     }
+   
+    .arrow{
+        margin-top: 50px;
+        background-color: transparent;
+        color: $white1;
+        border-radius: 50%;
+        height : 60px;
+        width: 60px;
+        border: 2px solid $white1;
+        font-size: 1.5rem;
+        z-index: -10;
+        margin-bottom: 10px;
+        animation: flash 1.5s ease-in infinite;
+
+        @keyframes flash{
+            0%{ opacity: 0,}
+            50%{opacity: 1;}
+            100%{opacity: 0;}
+
+            0%{ transform: scale(0.7);}
+            50%{transform: scale(1.0);}
+            100%{transform: scale(0.8);}
+        }
+
+        @media screen and (max-width: 500px) {
+            display: none;            
+        }
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        bottom: 0;
+        background-color: rgba(241, 241, 241, 0.192);
+    }
+    .navbar{
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        width: 50%;
+        overflow: hidden;
+        z-index: 21;
+        opacity: 0;
+        animation: animNavBar 1.5s ease-in forwards;
+
+        @keyframes animNavBar {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and ( max-width: 920px){
+            width : 100%;
+            text-align: center;
+        }
+    }
+    li{
+        @include center();
+        @include title();
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: center;
+        width: $width_navbar;
+
+
+        &:hover{
+            background-color: $grey2;
+            color: black;
+            transition: 1s ease-out;
+            cursor: pointer;
+        }     
+    }
+
+        @media screen and ( max-width: 420px){
+           font-size: 0.5rem;
+        }
+
+       
+    .social-icons{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        column-gap: 40px;
+        max-width: 300px;
+        padding-right: 15px;
+        right : 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        color: white;
+        font-size: 2.5rem;
+        color: $white1;
+
+        @media screen and ( max-width: 920px){
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+section{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and ( max-width: 920px){
+        display: flex;
+        flex-direction: column;
+    }
+
+    h4{ 
+        @include title;
+        font-size: 1.5rem;
+        padding: 0 25%;
+        text-align : center,
+       }
+
+    .main-article{
+        @include center();
+        flex-direction: column;
+        row-gap: 1.5rem;
+        grid-column-start: 1;  
+        grid-column-end: 3;  
+        overflow: hidden;
+
+        .date{
+            margin-top: 50px; 
+            position: relative;
+            
+
+            &:before,
+            &:after{
+                content: " ";
+                width: 300%;
+                height : 1px;
+                background-color: $grey1;
+                top: 50%;
+                transform: translateY(-50%);
+                position : absolute ; 
+                overflow: hidden;
+            }
+            &:before{
+                right: 150px;
+
+            }
+            &:after{
+                left: 150px;
+            }
+        }
+    
+        h2{
+            font-size: 1.3rem;
+        }
+        h3{
+            @include title ;
+            letter-spacing: 6px;
+            font-size: 4rem;
+            text-align: center;
+            width: 50%;
+
+            @media screen and ( max-width: 920px){
+                width: 70%;
+                font-size: 2.5rem;
+            }
+        }
+        p{
+            font-style: italic;
+            line-height: 2.5rem;
+            font-size: 1.4rem;
+            text-align: center;
+            width : 50%;
+        }
+    }
+    .second-article{
+        @include center();
+        flex-direction: column;
+        row-gap: 1.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.225);
+        padding-top: 25px;
+
+        h3{
+            font-size: 1rem;
+            font-weight: lighter;
+        }
+        p{
+            width: 80%;
+            line-height: 2.5rem;
+            font-size: 1.4rem;
+        }
+        }
+    .third-article{
+        @include center();
+        flex-direction: column;
+        row-gap: 1.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.225);
+        padding-top: 25px;
+        border-left: 1px solid rgba(0, 0, 0, 0.225);
+        h3{
+            font-size: 1rem;
+            font-weight: lighter;
+        }
+        p{
+            width: 80%;
+            line-height: 2.5rem;
+            font-size: 1.4rem;
+        }
+    }
+    img{
+        align-self: center;
+        width: 80%;
+    }
+}
